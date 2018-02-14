@@ -20,6 +20,7 @@ Enforce best practices for JavaScript promises.
   * [`always-return`](#always-return)
   * [`no-native`](#no-native)
   * [`no-nesting`](#no-nesting)
+  * [`no-identity-handlers`](#no-identity-handlers)
   * [`no-promise-in-callback`](#no-promise-in-callback)
   * [`no-callback-in-promise`](#no-callback-in-promise)
   * [`avoid-new`](#avoid-new)
@@ -70,6 +71,7 @@ Then configure the rules you want to use under the rules section.
     "promise/catch-or-return": "error",
     "promise/no-native": "off",
     "promise/no-nesting": "warn",
+    "promise/no-identity-handlers": "warn",
     "promise/no-promise-in-callback": "warn",
     "promise/no-callback-in-promise": "warn",
     "promise/avoid-new": "warn",
@@ -96,6 +98,7 @@ or start with the recommended rule set
 | `always-return`             | Return inside each `then()` to create readable and reusable Promise chains.      | :bangbang:  |          |
 | `no-native`                 | In an ES5 environment, make sure to create a `Promise` constructor before using. |             |          |
 | `no-nesting`                | Avoid nested `then()` or `catch()` statements                                    | :warning:   |          |
+| `no-identity-handlers`      | Avoid unnecessary identity functions in `then()` or `catch()`                    | :warning:   |          |
 | `no-promise-in-callback`    | Avoid using promises inside of callbacks                                         | :warning:   |          |
 | `no-callback-in-promise`    | Avoid calling `cb()` inside of a `then()` (use [nodeify][] instead)              | :warning:   |          |
 | `avoid-new`                 | Avoid creating `new` promises outside of utility libs (use [pify][] instead)     | :warning:   |          |
@@ -296,6 +299,10 @@ var x = Promise.resolve('bad')
 ### `no-nesting`
 
 Avoid nested `then()` or `catch()` statements
+
+### `no-identity-handlers`
+
+Avoid unnecessary identity functions in `then()` or `catch()`
 
 ### `no-promise-in-callback`
 
